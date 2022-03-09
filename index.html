@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+  <!-- Meta -->
+  <title>Instead of ads, I'd rather see...</title>
+  <meta charset="UTF-8">
+
+  <!-- Styles -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="vendor/animate/animate.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+  <style>
+    .arjs-loader {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .arjs-loader div {
+      text-align: center;
+      font-size: 1.25em;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <div class="navigation container-fluid">
+    <div class="row justify-content-md-center ">
+      <div class="col-md-10 col-sm-12">
+        <nav class="navbar navbar-default">
+          <a class="navbar-brand" href="index.html">
+            <img src="img/logo-black.png" height="22" alt="Logo">
+          </a>
+          <div class="button_container" id="toggle">
+            <span class="black top"></span>
+            <span class="black middle"></span>
+            <span class="black bottom"></span>
+          </div>
+          <div class="overlay" id="overlay">
+            <nav class="overlay-menu">
+              <ul>
+                <li> <a href="about.html">About</a></li>
+                <li> <a href="story.html">Story</a></li>
+                <li> <a href="services.html">Services</a></li>
+                <li> <a href="contacts.html">Contacts</a></li>
+              </ul>
+            </nav>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- End Navbar -->
+
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+  <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+    <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+    <a-nft type="nft" url="/Users/karlie/Downloads/dark/images/hero-bg.jpg" smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
+      <a-entity gltf-model="your-server/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf" scale="5 5 5" position="50 150 0">
+      </a-entity>
+    </a-nft>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <!-- Javascript -->
+  <script src="vendor/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/wow/wow.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
+  <script>
+    new WOW().init();
+  </script>
+  <!-- End Javascript -->
+</body>
+
+</html>
